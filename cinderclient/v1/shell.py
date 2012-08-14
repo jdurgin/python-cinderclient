@@ -131,6 +131,10 @@ def do_show(cs, args):
     metavar='<snapshot_id>',
     help='Optional snapshot id to create the volume from. (Default=None)',
     default=None)
+@utils.arg('--image_id',
+           metavar='<image_id>',
+           help='Optional image id to create the volume from. (Default=None)',
+           default=None)
 @utils.arg('--display_name', metavar='<display_name>',
            help='Optional volume name. (Default=None)',
            default=None)
@@ -148,7 +152,8 @@ def do_create(cs, args):
                       args.snapshot_id,
                       args.display_name,
                       args.display_description,
-                      args.volume_type)
+                      args.volume_type,
+                      imageRef=args.image_id)
 
 
 @utils.arg('volume', metavar='<volume>', help='ID of the volume to delete.')
